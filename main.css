@@ -1,0 +1,423 @@
+ @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #ffeef8 0%, #ffe0f0 25%, #ffb3d9 50%, #ff99cc 75%, #ff80bf 100%);
+            background-attachment: fixed;
+            color: #2d1b2e;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        .flower-particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .flower {
+            position: absolute;
+            font-size: 2rem;
+            animation: floatFlower 12s linear infinite;
+            opacity: 0;
+        }
+
+        @keyframes floatFlower {
+            0% { 
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% { opacity: 0.8; }
+            90% { opacity: 0.8; }
+            100% { 
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .sparkles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .sparkle {
+            position: absolute;
+            color: #ff69b4;
+            font-size: 1.5rem;
+            animation: sparkleFloat 4s ease-in-out infinite;
+            opacity: 0;
+        }
+
+        @keyframes sparkleFloat {
+            0%, 100% { 
+                opacity: 0;
+                transform: translateY(0) scale(0.5);
+            }
+            50% { 
+                opacity: 1;
+                transform: translateY(-20px) scale(1.2);
+            }
+        }
+
+        .container {
+            position: relative;
+            z-index: 2;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+
+        .hero-section {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            background: radial-gradient(circle at center, rgba(255, 182, 193, 0.3), transparent 70%);
+        }
+
+        .hero-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: clamp(3.5rem, 10vw, 9rem);
+            font-weight: 700;
+            background: linear-gradient(45deg, #ff1493, #ff69b4, #ffb6c1, #ffc0cb);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: pinkGradientShift 3s ease-in-out infinite;
+            margin-bottom: 2rem;
+            line-height: 1.1;
+            text-shadow: 0 0 30px rgba(255, 20, 147, 0.3);
+        }
+
+        @keyframes pinkGradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.3rem, 3vw, 2.2rem);
+            font-weight: 400;
+            color: #8b4a8c;
+            margin-bottom: 3rem;
+            max-width: 800px;
+            line-height: 1.6;
+            text-shadow: 0 2px 10px rgba(255, 182, 193, 0.5);
+        }
+
+        .floating-roses {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .floating-rose {
+            position: absolute;
+            font-size: 3rem;
+            color: #ff69b4;
+            animation: floatRose 20s linear infinite;
+            opacity: 0;
+        }
+
+        @keyframes floatRose {
+            0% { 
+                transform: translateY(100vh) rotate(0deg) scale(0.8);
+                opacity: 0;
+            }
+            5% { opacity: 0.7; }
+            95% { opacity: 0.7; }
+            100% { 
+                transform: translateY(-100px) rotate(360deg) scale(1.2);
+                opacity: 0;
+            }
+        }
+
+        .section {
+            padding: 8rem 0;
+            position: relative;
+        }
+
+        .section-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: clamp(2.8rem, 6vw, 4.5rem);
+            text-align: center;
+            margin-bottom: 4rem;
+            background: linear-gradient(45deg, #ff1493, #ff69b4, #da70d6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 20px rgba(255, 20, 147, 0.2);
+        }
+
+        .love-letter {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            border: 2px solid rgba(255, 182, 193, 0.4);
+            border-radius: 35px;
+            padding: 4rem;
+            margin: 4rem 0;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(255, 182, 193, 0.3);
+        }
+
+        .love-letter::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, 
+                #ff1493, #ff69b4, #ffb6c1, #ffc0cb, #dda0dd);
+            background-size: 200% 200%;
+            animation: pinkBorderGlow 4s ease-in-out infinite;
+            border-radius: 35px;
+            z-index: -1;
+        }
+
+        @keyframes pinkBorderGlow {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .love-text {
+            font-size: 1.4rem;
+            line-height: 2.2;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            color: #5d2a5e;
+            font-weight: 400;
+        }
+
+        .qualities-garden {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            margin: 4rem 0;
+        }
+
+        .quality-flower {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(15px);
+            border: 2px solid rgba(255, 182, 193, 0.4);
+            border-radius: 30px;
+            padding: 3rem;
+            text-align: center;
+            position: relative;
+            transition: all 0.4s ease;
+            cursor: pointer;
+            box-shadow: 0 15px 45px rgba(255, 182, 193, 0.2);
+        }
+
+        .quality-flower:hover {
+            transform: translateY(-20px) scale(1.03);
+            background: rgba(255, 255, 255, 0.8);
+            border-color: rgba(255, 20, 147, 0.6);
+            box-shadow: 0 25px 70px rgba(255, 20, 147, 0.3);
+        }
+
+        .quality-flower::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            background: linear-gradient(45deg, #ff69b4, #ffb6c1, #dda0dd);
+            border-radius: 30px;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .quality-flower:hover::before {
+            opacity: 0.2;
+        }
+
+        .quality-icon {
+            font-size: 4.5rem;
+            margin-bottom: 1.5rem;
+            display: block;
+            animation: flowerPulse 3s ease-in-out infinite;
+        }
+
+        @keyframes flowerPulse {
+            0%, 100% { transform: scale(1) rotate(0deg); }
+            50% { transform: scale(1.15) rotate(5deg); }
+        }
+
+        .quality-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #ff1493, #ff69b4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .quality-description {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #6b4a6d;
+            font-weight: 400;
+        }
+
+        .memory-bouquet {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            margin: 4rem 0;
+        }
+
+        .memory-petal {
+            background: rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(20px);
+            border: 2px solid rgba(255, 182, 193, 0.3);
+            border-radius: 25px;
+            padding: 2.5rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(255, 182, 193, 0.2);
+        }
+
+        .memory-petal::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                transparent, 
+                rgba(255, 182, 193, 0.3), 
+                transparent);
+            transition: left 0.8s ease;
+        }
+
+        .memory-petal:hover::before {
+            left: 100%;
+        }
+
+        .memory-petal:hover {
+            transform: translateY(-10px);
+            border-color: rgba(255, 20, 147, 0.5);
+            background: rgba(255, 255, 255, 0.7);
+        }
+
+        .memory-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #e91e63;
+            font-weight: 600;
+        }
+
+        .memory-text {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: #6b4a6d;
+            font-style: italic;
+        }
+
+        .final-garden {
+            text-align: center;
+            padding: 6rem 0;
+            background: rgba(255, 255, 255, 0.4);
+            border-radius: 40px;
+            margin: 4rem 0;
+            position: relative;
+            border: 2px solid rgba(255, 182, 193, 0.3);
+            box-shadow: 0 20px 60px rgba(255, 182, 193, 0.2);
+        }
+
+        .final-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 2rem;
+            background: linear-gradient(45deg, #ff1493, #ff69b4, #da70d6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 30px rgba(255, 20, 147, 0.3);
+        }
+
+        .final-text {
+            font-size: 1.5rem;
+            line-height: 2;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            color: #5d2a5e;
+            font-weight: 400;
+        }
+
+        .signature {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.5rem;
+            color: #e91e63;
+            font-style: italic;
+            margin-top: 3rem;
+            text-shadow: 0 2px 10px rgba(255, 20, 147, 0.2);
+        }
+
+        .rose-animation {
+            display: inline-block;
+            animation: roseBloom 3s ease-in-out infinite;
+        }
+
+        @keyframes roseBloom {
+            0%, 100% { transform: scale(1) rotate(0deg); }
+            25% { transform: scale(1.2) rotate(5deg); }
+            50% { transform: scale(1.1) rotate(-3deg); }
+            75% { transform: scale(1.3) rotate(3deg); }
+        }
+
+        .petal-decoration {
+            position: absolute;
+            font-size: 1.5rem;
+            color: rgba(255, 182, 193, 0.6);
+            animation: petalFloat 6s ease-in-out infinite;
+        }
+
+        @keyframes petalFloat {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(180deg); }
+        }
+
+        @media (max-width: 768px) {
+            .container { padding: 0 20px; }
+            .section { padding: 4rem 0; }
+            .love-letter { padding: 2.5rem; }
+            .quality-flower { padding: 2rem; }
+            .qualities-garden { 
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            .memory-bouquet {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
